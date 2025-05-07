@@ -1,0 +1,84 @@
+.resumeupload {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  padding: 10rem;
+  &__title {
+    color: var(--color-secondary);
+    font-weight: 500;
+    font-size: 1.3rem;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3rem;
+    padding: 2rem;
+    margin: 1rem;
+    border: 2px dashed var(--color-primary-light);
+  }
+  &__choosefile {
+    color: var(--color-secondary);
+    font-size: 1.2rem;
+  }
+  &__upload {
+    color: var(--color-primary-light);
+    font-size: 1rem;
+  }
+  &__browsefile {
+    all: unset;
+    font-weight: 400;
+    margin-top: 1rem;
+    padding: 0.7rem;
+    background-color: var(--color-white);
+    border-radius: 0.3rem;
+    border: 1px solid var(--color-primary-dark);
+  }
+  &__resumedrop {
+    height: 6rem;
+    width: 27rem;
+    display: flex;
+    gap: 4rem;
+    background-color: var(--color-success);
+
+    align-items: center;
+    justify-content: center;
+  }
+  &__fileinfo {
+    display: flex;
+  }
+  &__filename {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 0.3rem;
+  }
+  &__remove {
+    all: unset;
+    margin-top: -0.4rem;
+  }
+  &__progress {
+    width: 25rem !important;
+    height: 4px;
+    background-color: var(--color-loading);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 1rem;
+  }
+
+  &__progressbar {
+    height: 100%;
+    width: 100%;
+    background-color: var(--color-primary);
+    animation: loading 1s linear forwards;
+  }
+
+  @keyframes loading {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
+  }
+}
