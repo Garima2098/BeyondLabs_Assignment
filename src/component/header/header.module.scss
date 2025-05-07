@@ -1,0 +1,38 @@
+@import '../../design_system/colors/palette.scss';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+
+  &__left,
+  &__center,
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__center,
+  &__right {
+    border: 1px solid var(--color-primary-light);
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: var(--color-primary-dark);
+    font-weight: 500;
+    margin: 0 1rem;
+  }
+
+  &__build {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary-dark);
+    font-weight: 500;
+    cursor: pointer;
+  }
+}
