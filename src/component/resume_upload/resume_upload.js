@@ -6,7 +6,7 @@ import { ReactComponent as Trash } from '../../assets/icons/trash.svg';
 import { ReactComponent as Pdf } from '../../assets/images/pdf.svg';
 import classes from './resume_upload.module.scss';
 
-const ResumeUpload = () => {
+const ResumeUpload = ({ nextStep, updateData }) => {
   const fileInputRef = useRef(null);
   const [fileData, setFileData] = useState(null);
   const [fileName, setFileName] = useState('');
@@ -53,6 +53,15 @@ const ResumeUpload = () => {
     localStorage.removeItem('uploadedFileName');
   };
 
+  const handleNext = () => {
+    if (!fileData) {
+      alert('Please upload your resume before proceeding.');
+      return;
+    }
+    updateData({ resume: fileData });
+    nextStep();
+  };
+
   return (
     <div
       className={classes['resumeupload']}
@@ -77,6 +86,7 @@ const ResumeUpload = () => {
           Browse File
         </button>
       </div>
+
       <div className={classes['resumeupload__resumedrop']}>
         {isUploading ? (
           <div className={classes['resumeupload__loading']}>
@@ -87,7 +97,7 @@ const ResumeUpload = () => {
           </div>
         ) : (
           <>
-            {fileData ? (
+            {fileData && (
               <>
                 <div className={classes['resumeupload__fileinfo']}>
                   <Pdf />
@@ -103,17 +113,26 @@ const ResumeUpload = () => {
                   <Trash />
                 </button>
               </>
-            ) : (
-              <></>
             )}
           </>
         )}
+
         <input
           ref={fileInputRef}
           type="file"
           style={{ display: 'none' }}
           onChange={(e) => handleFile(e.target.files[0])}
         />
+      </div>
+
+      <div className={classes['resumeupload__nextbtnwrapper']}>
+        <button>prev</button>
+        <button
+          onClick={handleNext}
+          className={classes['resumeupload__nextbtn']}
+        >
+          Next
+        </button>
       </div>
     </div>
   );
