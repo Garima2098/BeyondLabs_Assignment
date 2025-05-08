@@ -3,7 +3,7 @@ import { ReactComponent as CloudAdd } from '../../assets/icons/cloud-add.svg';
 import { ReactComponent as Loading } from '../../assets/icons/uploadicon.svg';
 import { ReactComponent as Completed } from '../../assets/icons/completed.svg';
 import { ReactComponent as Trash } from '../../assets/icons/trash.svg';
-import { ReactComponent as Pdf } from '../../assets/images/pdf.svg';
+import { ReactComponent as Pdf } from '../../assets/images/Pdficon.svg';
 import classes from './resume_upload.module.scss';
 
 const ResumeUpload = ({ nextStep, updateData }) => {
