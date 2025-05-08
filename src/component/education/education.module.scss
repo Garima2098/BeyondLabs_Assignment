@@ -1,0 +1,118 @@
+.education {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.education__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.education__row {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.education__inputGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.education__inputGroup label {
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.education__inputGroup input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.education__inputGroup input:focus {
+  outline: none;
+  border-color: #f97316;
+}
+
+.education__inputGroup input.error {
+  border-color: red;
+}
+
+.education__inputGroup .errorMessage {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.education__addButton {
+  align-self: flex-start;
+  background-color: #f97316;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.education__addButton:hover {
+  background-color: #ea580c;
+}
+
+.education__entries {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.education__entryCard {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9fafb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.education__entryDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.education__deleteBtn {
+  background: transparent;
+  border: none;
+  color: red;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.education__navButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.education__navButtons button {
+  background-color: #f97316;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.education__navButtons button:hover {
+  background-color: #ea580c;
+}

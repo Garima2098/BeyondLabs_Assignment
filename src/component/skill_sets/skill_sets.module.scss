@@ -1,0 +1,122 @@
+.skillSets {
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 700px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.skillSets__heading {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  margin-right: 30rem;
+  color: var(--color-secondary);
+}
+
+.skillSets__inputRow {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.skillSets__inputBlock {
+  flex: 1 1 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.skillSets__inputBlock label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.skillSets__inputBlock input,
+.skillSets__inputBlock select {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.skillSets__inputBlock input:focus,
+.skillSets__inputBlock select:focus {
+  border-color: #007bff;
+}
+
+.skillSets__addButton {
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 1.5rem;
+}
+
+.skillSets__skillList {
+  margin-bottom: 2rem;
+}
+
+.skillSets__skillItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.skillSets__skillItem button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.skillSets__skillItem button:hover {
+  background-color: #c82333;
+}
+
+.skillSets__navButtons {
+  display: flex;
+  margin-left: 30rem;
+  gap: 3rem;
+}
+
+.skillSets__prevBtn,
+.skillSets__nextBtn {
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.skillSets__prevBtn {
+  background-color: var(--color-white);
+  color: var(--color-secondary);
+  border: 1px solid var(--color-secondary);
+}
+
+.skillSets__nextBtn {
+  background-color: var(--color-primary);
+  color: white;
+  border: 1px solid var(--color-primary);
+}

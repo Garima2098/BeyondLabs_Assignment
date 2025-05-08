@@ -11,6 +11,7 @@ const ResumeUpload = ({ nextStep, updateData }) => {
   const [fileData, setFileData] = useState(null);
   const [fileName, setFileName] = useState('');
   const [isUploading, setIsUploading] = useState(false);
+  const [uploadError, setUploadError] = useState('');
 
   useEffect(() => {
     const storedFile = localStorage.getItem('uploadedFile');
@@ -23,7 +24,30 @@ const ResumeUpload = ({ nextStep, updateData }) => {
 
   const handleFile = (file) => {
     if (!file) return;
+
+    // File type and size validation
+    const allowedTypes = [
+      'application/pdf',
+      'application/msword',
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    ];
+    const maxSize = 5 * 1024 * 1024; // 5 MB
+
+    if (!allowedTypes.includes(file.type)) {
+      setUploadError('Invalid file type. Please upload a PDF or DOC file.');
+      return;
+    }
+
+    if (file.size > maxSize) {
+      setUploadError(
+        'File size exceeds the 5 MB limit. Please upload a smaller file.'
+      );
+      return;
+    }
+
+    setUploadError(''); // Clear previous errors
     setIsUploading(true);
+
     const reader = new FileReader();
     reader.onload = () => {
       setTimeout(() => {
@@ -47,10 +71,15 @@ const ResumeUpload = ({ nextStep, updateData }) => {
   const handleBrowse = () => fileInputRef.current.click();
 
   const removeFile = () => {
-    setFileData(null);
-    setFileName('');
-    localStorage.removeItem('uploadedFile');
-    localStorage.removeItem('uploadedFileName');
+    const confirmRemove = window.confirm(
+      'Are you sure you want to remove the uploaded file?'
+    );
+    if (confirmRemove) {
+      setFileData(null);
+      setFileName('');
+      localStorage.removeItem('uploadedFile');
+      localStorage.removeItem('uploadedFileName');
+    }
   };
 
   const handleNext = () => {
@@ -58,7 +87,7 @@ const ResumeUpload = ({ nextStep, updateData }) => {
       alert('Please upload your resume before proceeding.');
       return;
     }
-    updateData({ resume: fileData });
+    updateData({ resume: fileData, resumeName: fileName });
     nextStep();
   };
 
@@ -86,6 +115,10 @@ const ResumeUpload = ({ nextStep, updateData }) => {
           Browse File
         </button>
       </div>
+
+      {uploadError && (
+        <div className={classes['resumeupload__error']}>{uploadError}</div>
+      )}
 
       <div className={classes['resumeupload__resumedrop']}>
         {isUploading ? (
@@ -126,7 +159,7 @@ const ResumeUpload = ({ nextStep, updateData }) => {
       </div>
 
       <div className={classes['resumeupload__nextbtnwrapper']}>
-        <button>prev</button>
+        <button className={classes['resumeupload__prevbtn']}>Prev</button>
         <button
           onClick={handleNext}
           className={classes['resumeupload__nextbtn']}

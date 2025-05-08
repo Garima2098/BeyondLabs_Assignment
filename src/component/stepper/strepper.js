@@ -1,7 +1,14 @@
 import React from 'react';
 import classes from './stepper.module.scss';
 
-const steps = ['Upload', 'Info', 'Skills', 'Education', 'Summary', 'Done'];
+const steps = [
+  'Upload',
+  'Basic Information',
+  'Skillset',
+  'Education',
+  'Summary',
+  'Completed',
+];
 
 export default function StepProgress({ currentStep }) {
   return (

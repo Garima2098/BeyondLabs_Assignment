@@ -1,0 +1,33 @@
+.completed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 50vh;
+  &__header {
+    color: var(--color-primary-dark);
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+
+  &__highlighted {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-right: 0.3rem;
+  }
+  &__undernithtext {
+    color: var(--color-secondary);
+    font-size: 1rem;
+    margin-top: 0.2rem;
+  }
+  &__tracker {
+    all: unset;
+    background-color: var(--color-primary);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    color: var(--color-white);
+    margin-top: 0.7rem;
+    border-radius: 0.2rem;
+    font-size: 0.9rem;
+  }
+}
