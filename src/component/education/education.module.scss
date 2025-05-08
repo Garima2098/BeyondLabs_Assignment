@@ -1,118 +1,136 @@
 .education {
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
+  max-width: 700px;
+  margin: 0.3rem auto;
+  padding: 0rem 2rem 2rem 2rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  font-family: 'Segoe UI', sans-serif;
 
-.education__form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
+  &__title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-right: 30rem;
+    color: var(--color-secondary);
+  }
+  &__degree {
+    display: flex;
+    gap: 1rem;
+  }
 
-.education__row {
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
+  &__formGroup {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
 
-.education__inputGroup {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
+    label {
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: #444;
+    }
 
-.education__inputGroup label {
-  margin-bottom: 0.25rem;
-  font-weight: 600;
-}
+    input {
+      padding: 0.7rem 1rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      transition: border-color 0.3s;
 
-.education__inputGroup input {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-}
+      &:focus {
+        border-color: var(--color-primary);
+        outline: none;
+      }
+    }
+  }
 
-.education__inputGroup input:focus {
-  outline: none;
-  border-color: #f97316;
-}
+  &__datePicker {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
 
-.education__inputGroup input.error {
-  border-color: red;
-}
+  &__addBtn {
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 
-.education__inputGroup .errorMessage {
-  color: red;
-  font-size: 0.85rem;
-  margin-top: 0.25rem;
-}
+    &:hover {
+      background-color: var(--color-primary);
+    }
+  }
 
-.education__addButton {
-  align-self: flex-start;
-  background-color: #f97316;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 1rem;
-}
+  &__list {
+    margin-top: 2rem;
+  }
 
-.education__addButton:hover {
-  background-color: #ea580c;
-}
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
 
-.education__entries {
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
+    button {
+      background-color: var(--color-primary);
+      border: none;
+      color: #fff;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: background-color 0.3s;
 
-.education__entryCard {
-  padding: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #f9fafb;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+      &:hover {
+        background-color: var(--color-primary);
+      }
+    }
+  }
 
-.education__entryDetails {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
+  &__navButtons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.5rem;
+    margin-left: 30rem;
+  }
 
-.education__deleteBtn {
-  background: transparent;
-  border: none;
-  color: red;
-  font-size: 1rem;
-  cursor: pointer;
-}
+  &__backBtn {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    background-color: var(--color-white);
+    color: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 
-.education__navButtons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2rem;
-}
+    &:hover {
+      background-color: #e2e6ea;
+    }
+  }
 
-.education__navButtons button {
-  background-color: #f97316;
-  color: white;
-  border: none;
-  padding: 0.5rem 1.5rem;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-}
+  &__nextBtn {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    background-color: var(--color-primary);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 
-.education__navButtons button:hover {
-  background-color: #ea580c;
+    &:hover {
+      background-color: var(--color-primary);
+    }
+  }
 }

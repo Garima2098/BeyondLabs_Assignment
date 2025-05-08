@@ -1,4 +1,6 @@
 import React from 'react';
+import { ReactComponent as PdfDownload } from '../../assets/icons/downloadPdf.svg';
+import classes from './summary.module.scss';
 
 const Summary = ({ formData, prevStep, nextStep }) => {
   const resumeFile = formData.resume;
@@ -12,63 +14,78 @@ const Summary = ({ formData, prevStep, nextStep }) => {
     link.download = resumeName;
     link.click();
   };
-  const handleNext = () => {
-    nextStep();
-  };
 
   return (
-    <div>
-      <h2>Summary</h2>
+    <div className={classes.summary}>
+      <h2 className={classes['summary__title']}>Summary</h2>
 
-      <div>
-        <h3>Personal Details</h3>
-        <p>
-          <strong>First Name:</strong> {formData.firstName}
-        </p>
-        <p>
-          <strong>Last Name:</strong> {formData.lastName}
-        </p>
-        <p>
-          <strong>Email:</strong> {formData.email}
-        </p>
-        <p>
-          <strong>Contact:</strong> {formData.contact}
-        </p>
+      <div className={classes['summary__section']}>
+        <h2 className={classes['summary__subtitle']}>Resume</h2>
+        <div className={classes['summary__resume-info']}>
+          <h3 className={classes['summary__label']}>File Name</h3>
+          {resumeFile ? (
+            <div className={classes['summary__file-block']}>
+              <p className={classes['summary__file-name']}>{resumeName}</p>
+              <button
+                className={classes['summary__download-button']}
+                onClick={downloadResume}
+              >
+                <PdfDownload className={classes['summary__icon']} />
+              </button>
+            </div>
+          ) : (
+            <p className={classes['summary__empty']}>No resume uploaded.</p>
+          )}
+        </div>
       </div>
 
-      <div>
-        <h3>Resume</h3>
-        {resumeFile ? (
-          <>
-            <p>{resumeName}</p>
-            <button onClick={downloadResume}>Download Resume</button>
-          </>
-        ) : (
-          <p>No resume uploaded.</p>
-        )}
+      <div className={classes['summary__basicinfo']}>
+        <h3 className={classes['summary__basicinfo-heading']}>
+          Basic Information
+        </h3>
+        <div className={classes['summary__basiciinfo']}>
+          <div className={classes['summary__field']}>
+            <strong>First Name:</strong> {formData.firstName}
+          </div>
+          <div className={classes['summary__field']}>
+            <strong>Last Name:</strong> {formData.lastName}
+          </div>
+          <div className={classes['summary__field']}>
+            <strong>Email:</strong> {formData.email}
+          </div>
+          <div className={classes['summary__field']}>
+            <strong>Contact:</strong> {formData.contact}
+          </div>
+        </div>
       </div>
 
-      <div>
-        <h3>Skills</h3>
+      <div className={classes['summary__section']}>
+        <h3 className={classes['summary__subtitle']}>Skills</h3>
         {skills.length > 0 ? (
-          <ul>
+          <ul className={classes['summary__list']}>
             {skills.map((item, index) => (
-              <li key={index}>
+              <li
+                className={classes['summary__list-item']}
+                key={index}
+              >
                 {item.skill} - {item.level}
               </li>
             ))}
           </ul>
         ) : (
-          <p>No skills added.</p>
+          <p className={classes['summary__empty']}>No skills added.</p>
         )}
       </div>
 
-      <div>
-        <h3>Education</h3>
+      <div className={classes['summary__section']}>
+        <h3 className={classes['summary__subtitle']}>Education</h3>
         {education.length > 0 ? (
-          <ul>
+          <div className={classes['summary__list']}>
             {education.map((item, index) => (
-              <li key={index}>
+              <div
+                className={classes['summary__list-item']}
+                key={index}
+              >
                 {item.degree}, {item.university} (
                 {new Date(item.startYear).toLocaleDateString('en-US', {
                   month: 'short',
@@ -80,19 +97,26 @@ const Summary = ({ formData, prevStep, nextStep }) => {
                   year: 'numeric',
                 })}
                 )
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         ) : (
-          <p>No education details added.</p>
+          <p className={classes['summary__empty']}>
+            No education details added.
+          </p>
         )}
       </div>
 
-      <div style={{ marginTop: '20px' }}>
-        <button onClick={prevStep}>Previous</button>
+      <div className={classes['summary__actions']}>
         <button
-          onClick={handleNext}
-          style={{ marginLeft: '10px' }}
+          className={classes['summary__button']}
+          onClick={prevStep}
+        >
+          Back
+        </button>
+        <button
+          className={`${classes['summary__button']} ${classes['summary__button--next']}`}
+          onClick={nextStep}
         >
           Next
         </button>

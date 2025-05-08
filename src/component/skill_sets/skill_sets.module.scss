@@ -47,7 +47,7 @@
 
 .skillSets__inputBlock input:focus,
 .skillSets__inputBlock select:focus {
-  border-color: #007bff;
+  border-color: var(--color-primary);
 }
 
 .skillSets__addButton {

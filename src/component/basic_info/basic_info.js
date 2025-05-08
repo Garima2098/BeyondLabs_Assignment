@@ -11,17 +11,24 @@ const BasicInfo = ({ nextStep, prevStep, updateData, formData }) => {
 
   const [errors, setErrors] = useState({});
 
+  // Load data from localStorage or props
   useEffect(() => {
-    if (formData) {
+    const savedData = localStorage.getItem('basicInfoForm');
+    if (savedData) {
+      setForm(JSON.parse(savedData));
+    } else if (formData) {
       setForm(formData);
     }
   }, [formData]);
 
   const handleChange = (e) => {
-    setForm({
+    const updatedForm = {
       ...form,
       [e.target.name]: e.target.value,
-    });
+    };
+
+    setForm(updatedForm);
+    localStorage.setItem('basicInfoForm', JSON.stringify(updatedForm));
 
     setErrors({
       ...errors,
@@ -43,6 +50,7 @@ const BasicInfo = ({ nextStep, prevStep, updateData, formData }) => {
   const handleNext = () => {
     if (validate()) {
       updateData(form);
+      localStorage.removeItem('basicInfoForm'); // Optional: clean up if needed
       nextStep();
     }
   };
@@ -84,6 +92,7 @@ const BasicInfo = ({ nextStep, prevStep, updateData, formData }) => {
           )}
         </div>
       </div>
+
       <div className={classes['basicinfo__form']}>
         <div className={classes['basicinfo__field']}>
           <label className={classes['basicinfo__attribute']}>Email</label>
@@ -113,6 +122,7 @@ const BasicInfo = ({ nextStep, prevStep, updateData, formData }) => {
           )}
         </div>
       </div>
+
       <div className={classes['basicinfo__buttons']}>
         <button
           onClick={handlePrev}

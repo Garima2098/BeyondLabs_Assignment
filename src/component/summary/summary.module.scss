@@ -1,46 +1,115 @@
 .summary {
-  padding: 2rem;
-  background: #f9f9f9;
-  border-radius: 12px;
+  font-family: 'Segoe UI', sans-serif;
   max-width: 700px;
-  margin: 0 auto;
+  margin: 0.3rem auto;
+  padding: 0rem 2rem 2rem 2rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 
-  h2 {
-    text-align: center;
-    margin-bottom: 1.5rem;
+  &__section {
+    border-bottom: 1px solid #ddd;
+  }
+  &__title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-right: 38rem;
+    color: var(--color-secondary);
   }
 
-  .section {
-    margin-bottom: 1.5rem;
-
-    h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.2rem;
-    }
-
-    p,
-    li {
-      font-size: 1rem;
-      margin: 0.25rem 0;
-    }
-
-    ul {
-      list-style: disc;
-      padding-left: 1.5rem;
-    }
-  }
-
-  .navButtons {
+  &__subtitle,
+  &__basicinfo-heading {
+    font-size: 18px;
+    font-weight: 600;
     display: flex;
-    justify-content: flex-start;
-    margin-top: 2rem;
+    align-items: start;
+  }
+  &__file-block {
+    display: flex;
+    gap: 1rem;
+  }
+  &__download-button {
+    all: unset;
+    cursor: pointer;
+  }
+  &__label {
+    display: flex;
+    align-items: start;
+    font-size: 15px;
+    font-weight: 400;
+  }
+  &__basicinfo {
+    border-bottom: 1px solid #ddd;
+  }
 
-    .prevBtn {
-      background: #ccc;
-      padding: 0.5rem 1.2rem;
-      border-radius: 6px;
-      border: none;
-      cursor: pointer;
+  &__basiciinfo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    &__field {
+      font-size: 10px;
+
+      strong {
+        font-weight: 100;
+      }
     }
+  }
+
+  &__skills {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 12px;
+    column-gap: 32px;
+  }
+
+  &__education {
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-top: 32px;
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      font-weight: 500;
+      cursor: pointer;
+
+      &:first-child {
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
+        background-color: var(--color-white);
+        color: var(--color-secondary);
+        border: 1px solid var(--color-secondary);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      &:last-child {
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
+        background-color: var(--color-primary);
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+
+  &__empty {
+    font-style: italic;
+    color: #888;
+    font-size: 14px;
   }
 }

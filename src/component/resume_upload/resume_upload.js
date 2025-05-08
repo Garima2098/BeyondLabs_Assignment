@@ -25,13 +25,12 @@ const ResumeUpload = ({ nextStep, updateData }) => {
   const handleFile = (file) => {
     if (!file) return;
 
-    // File type and size validation
     const allowedTypes = [
       'application/pdf',
       'application/msword',
       'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
     ];
-    const maxSize = 5 * 1024 * 1024; // 5 MB
+    const maxSize = 5 * 1024 * 1024;
 
     if (!allowedTypes.includes(file.type)) {
       setUploadError('Invalid file type. Please upload a PDF or DOC file.');
@@ -45,7 +44,7 @@ const ResumeUpload = ({ nextStep, updateData }) => {
       return;
     }
 
-    setUploadError(''); // Clear previous errors
+    setUploadError('');
     setIsUploading(true);
 
     const reader = new FileReader();
@@ -159,7 +158,6 @@ const ResumeUpload = ({ nextStep, updateData }) => {
       </div>
 
       <div className={classes['resumeupload__nextbtnwrapper']}>
-        <button className={classes['resumeupload__prevbtn']}>Prev</button>
         <button
           onClick={handleNext}
           className={classes['resumeupload__nextbtn']}

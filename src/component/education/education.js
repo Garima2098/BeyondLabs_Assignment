@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './education.module.scss';
+import classes from './education.module.scss';
 
 const Education = ({ nextStep, prevStep, updateData }) => {
   const [degree, setDegree] = useState('');
@@ -31,11 +31,11 @@ const Education = ({ nextStep, prevStep, updateData }) => {
   };
 
   return (
-    <div className={styles.education}>
-      <h2>Education</h2>
+    <div className={classes.education}>
+      <h2 className={classes.education__title}>Education</h2>
 
-      <div className={styles.inputRow}>
-        <div className={styles.inputBlock}>
+      <div className={classes.education__degree}>
+        <div className={classes.education__formGroup}>
           <label>Degree</label>
           <input
             type="text"
@@ -44,7 +44,8 @@ const Education = ({ nextStep, prevStep, updateData }) => {
             placeholder="e.g., B.Tech"
           />
         </div>
-        <div className={styles.inputBlock}>
+
+        <div className={classes.education__formGroup}>
           <label>University</label>
           <input
             type="text"
@@ -55,8 +56,8 @@ const Education = ({ nextStep, prevStep, updateData }) => {
         </div>
       </div>
 
-      <div className={styles.inputRow}>
-        <div className={styles.inputBlock}>
+      <div className={classes.education__datePicker}>
+        <div className={classes.education__formGroup}>
           <label>Start Year</label>
           <input
             type="month"
@@ -64,7 +65,7 @@ const Education = ({ nextStep, prevStep, updateData }) => {
             onChange={(e) => setStartYear(e.target.value)}
           />
         </div>
-        <div className={styles.inputBlock}>
+        <div className={classes.education__formGroup}>
           <label>End Year</label>
           <input
             type="month"
@@ -72,19 +73,19 @@ const Education = ({ nextStep, prevStep, updateData }) => {
             onChange={(e) => setEndYear(e.target.value)}
           />
         </div>
-        <button
-          className={styles.addButton}
-          onClick={handleAddEducation}
-        >
-          Add
-        </button>
       </div>
+      <button
+        className={classes.education__addBtn}
+        onClick={handleAddEducation}
+      >
+        Add
+      </button>
 
-      <div className={styles.educationList}>
+      <div className={classes.education__list}>
         {educationList.map((item, index) => (
           <div
             key={index}
-            className={styles.educationItem}
+            className={classes.education__item}
           >
             <span>
               {item.degree}, {item.university} ({item.startYear} -{' '}
@@ -95,16 +96,16 @@ const Education = ({ nextStep, prevStep, updateData }) => {
         ))}
       </div>
 
-      <div className={styles.navButtons}>
+      <div className={classes.education__navButtons}>
         <button
           onClick={prevStep}
-          className={styles.prevBtn}
+          className={classes.education__backBtn}
         >
-          Previous
+          Back
         </button>
         <button
           onClick={handleNext}
-          className={styles.nextBtn}
+          className={classes.education__nextBtn}
         >
           Next
         </button>
